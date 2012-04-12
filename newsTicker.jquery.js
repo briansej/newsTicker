@@ -11,6 +11,7 @@ Tom McKenzie <http://chillidonut.com/> <https://github.com/grrowl/>
 			timeout: 4500,
 			direction: 'down',
 			animSpeed: 'slow',
+			pauseOnHover: true,
 			nextSelector: '',
 			prevSelector: ''
 		};
@@ -32,8 +33,22 @@ Tom McKenzie <http://chillidonut.com/> <https://github.com/grrowl/>
 			return; // abort if theres only one item
 
 		var thisObj = this;
+		
+		// next-prev buttons
 		jQuery(this.options.nextSelector).click(function() { thisObj.next(); return false; });
 		jQuery(this.options.prevSelector).click(function(){ thisObj.prev(); return false; });
+
+		if (this.options.pauseOnHover) {
+			this.element.on({
+				mouseenter: function () {
+					if (thisObj.timeoutId)
+						clearTimeout(thisObj.timeoutId);
+				},
+				mouseleave: function () {
+					thisObj.tick();
+				}
+			});
+		}
 		
 		this.element.children().css('position', 'absolute').hide().first().fadeIn();
 		this.tick();
@@ -43,6 +58,7 @@ Tom McKenzie <http://chillidonut.com/> <https://github.com/grrowl/>
 	Plugin.prototype.tick = function () {
 		if (this.timeoutId)
 			clearTimeout(this.timeoutId);
+
 		var thisObj = this; // fix scope
 		this.timeoutId = setTimeout(function () { 	
 			thisObj.next.call(thisObj); 

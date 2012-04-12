@@ -12,6 +12,7 @@ $('ul#latestNews').styledForms({
 	timeout: 4500, // timeout between auto-progression
 	direction: 'down', // or 'up'
 	animSpeed: 'slow', // or 'fast' or a time in milliseconds
+	pauseOnHover: true, // whether to pause the auto-progression on element hover
 	nextSelector: '', // selector for a "next" button
 	prevSelector: '' // selector for a "prev" button
 });
