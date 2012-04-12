@@ -22,24 +22,24 @@ the direction is reversed when you go to a previous item.
 The list operates on all children of the element, so it's reccommended you use a list. Here's some
 suggested HTML, required CSS is marked:
 ```
-	<style>
-		ul {
-			height: 40px; /* or similar value */
-			position: relative; /* required. Also good: 'absolute' */
-			overflow: hidden; /* required */
-		}
-		li {
-			/* position: absolute; -- will be set by the plugin */
-			height: 40px;
-			line-height: 40px;
-		}
-	</style>
-	<ul id="newsTicker">
-		<li>BREAKING NEWS: I spilled the milk :(</li>
-		<li>Follow me on twitter, or don't! <a href="http://twitter.com/grrowl">@grrowl</a></li>
-		<li>Very interesting news coming up.</li>
-		<li>Look at my other cool things at <a href="http://github.com/grrowl">github.com/grrowl</a></li>
-		<li>More items.</li>
-		<li>Crazy, crazy things.</li>
-	</ul>
+<style>
+	ul {
+		height: 40px; /* or similar value */
+		position: relative; /* required. Also good: 'absolute' */
+		overflow: hidden; /* required */
+	}
+	li {
+		/* position: absolute; -- will be set by the plugin */
+		height: 40px;
+		line-height: 40px;
+	}
+</style>
+<ul id="newsTicker">
+	<li>BREAKING NEWS: I spilled the milk :(</li>
+	<li>Follow me on twitter, or don't! <a href="http://twitter.com/grrowl">@grrowl</a></li>
+	<li>Very interesting news coming up.</li>
+	<li>Look at my other cool things at <a href="http://github.com/grrowl">github.com/grrowl</a></li>
+	<li>More items.</li>
+	<li>Crazy, crazy things.</li>
+</ul>
 ```
