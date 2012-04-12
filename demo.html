@@ -14,14 +14,16 @@
 	</script>
 	<style>
 		ul {
-			height: 40px;
-			border: 1px inset grey;
-			list-style: none;
-			position: relative;
-			overflow: hidden;
+			position: relative; /* required, or use 'absolute' */
+			overflow: hidden; /* required */
+			
+			height: 40px; /* or similar value */
 		}
-		li {
-			height: 40px;
+		ul li {
+			/* position: absolute; -- not required, will be set by the plugin.
+				not setting it in CSS will mean users without JS enabled will only see your first item */
+			
+			height: 40px; /* from the parent ul */
 			line-height: 40px;
 		}
 	</style>
