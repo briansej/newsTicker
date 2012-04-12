@@ -10,7 +10,7 @@ or define the following awesome options (defaults shown):
 ```javascript
 $('ul#latestNews').styledForms({
 	timeout: 4500, // timeout between auto-progression
-	direction: 'down', // or 'up'
+	direction: 'down', // or 'up', 'left', right'
 	animSpeed: 'slow', // or 'fast' or a time in milliseconds
 	pauseOnHover: true, // whether to pause the auto-progression on element hover
 	nextSelector: '', // selector for a "next" button

@@ -105,13 +105,15 @@ Tom McKenzie <http://chillidonut.com/> <https://github.com/grrowl/>
 	Plugin.prototype.animate = function(current, next, direction) {
 		switch (direction) {
 			case 'up':
-				var parentHeight = this.element.height() + 'px';
+				var parentHeight = this.element.innerHeight();
+				var parentPadding = parseInt(this.element.css('paddingTop'));
 
+				current.css('top', parentPadding +'px');
 				current.animate({
 					opacity: 'hide',
 					top: '-='+ parentHeight
 				}, this.options.animSpeed);
-				next.css({ position: 'absolute', top: parentHeight });
+				next.css({ position: 'absolute', top: (parentHeight + parentPadding) + 'px' });
 				next.animate({
 					opacity: 'show',
 					top: '-='+ parentHeight
@@ -120,16 +122,50 @@ Tom McKenzie <http://chillidonut.com/> <https://github.com/grrowl/>
 
 			case 'down':
 			default:
-				var parentHeight = this.element.height() + 'px';
+				var parentHeight = this.element.innerHeight();
+				var parentPadding = parseInt(this.element.css('paddingTop'));
 
+				current.css('top', parentPadding +'px');
 				current.animate({
 					opacity: 'hide',
 					top: '+='+ parentHeight
 				}, this.options.animSpeed);
-				next.css({ position: 'absolute', top: '-'+ parentHeight });
+				next.css({ position: 'absolute', top: '-'+ (parentHeight - parentPadding) +'px' });
 				next.animate({
 					opacity: 'show',
 					top: '+='+ parentHeight
+				}, this.options.animSpeed);
+				break;
+
+			case 'right':
+				var parentWidth = this.element.innerWidth();
+				var parentPadding = parseInt(this.element.css('paddingLeft'));
+
+				current.css('left', parentPadding +'px');
+				current.animate({
+					opacity: 'hide',
+					left: '+='+ parentWidth
+				}, this.options.animSpeed);
+				next.css({ position: 'absolute', left: '-'+ (parentWidth - parentPadding) +'px' });
+				next.animate({
+					opacity: 'show',
+					left: '+='+ parentWidth
+				}, this.options.animSpeed);
+				break;
+
+			case 'left':
+				var parentWidth = this.element.innerWidth();
+				var parentPadding = parseInt(this.element.css('paddingLeft'));
+
+				current.css('left', parentPadding +'px');
+				current.animate({
+					opacity: 'hide',
+					left: '-='+ parentWidth
+				}, this.options.animSpeed);
+				next.css({ position: 'absolute', left: (parentWidth + parentPadding) +'px' });
+				next.animate({
+					opacity: 'show',
+					left: '-='+ parentWidth
 				}, this.options.animSpeed);
 				break;
 		}
