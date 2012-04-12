@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="newsTicker.jQuery.js"></script>
+	<script>
+		$(function () {
+			$('ul#newsTicker').newsTicker({
+				nextSelector: '#newsNext',
+				prevSelector: '#newsPrev'
+			});
+		});
+	</script>
+	<style>
+		ul {
+			height: 40px;
+			border: 1px inset grey;
+			list-style: none;
+			position: relative;
+			overflow: hidden;
+		}
+		li {
+			height: 40px;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<h1>newsTicker demo</h1>
+	<ul id="newsTicker">
+		<li>BREAKING NEWS: I spilled the milk :(</li>
+		<li>Follow me on twitter, or don't! <a href="http://twitter.com/grrowl">@grrowl</a></li>
+		<li>Very interesting news coming up.</li>
+		<li>Look at my other cool things at <a href="http://github.com/grrowl">github.com/grrowl</a></li>
+		<li>More items.</li>
+		<li>Crazy, crazy things.</li>
+	</ul>
+	<a href="#" id="newsNext">next</a> <a href="#" id="newsPrev">prev</a>
+</body>
+</html>
