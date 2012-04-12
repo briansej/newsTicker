@@ -37,4 +37,4 @@ ul li {
 }
 ```
 
-I encourage you to [check out at demo.html](demo.html) to see it all in action.
+I encourage you to [check out at demo.html](https://github.com/grrowl/newsTicker/blob/master/demo.html) to see it all in action.
